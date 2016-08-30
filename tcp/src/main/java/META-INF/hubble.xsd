@@ -54,7 +54,6 @@
             <xsd:attribute name="id" use="required" type="xsd:string"/>
             <xsd:attribute name="interface" use="required" type="xsd:string"/>
             <xsd:attribute name="ref" use="required" type="xsd:string"/>
-            <xsd:attribute name="server" use="required" type="xsd:string"/>
             <xsd:attribute name="alias" use="required" type="xsd:string"/>
             <xsd:attribute name="protocol" use="optional" type="xsd:string"/>
             <xsd:attribute name="timeout" use="optional" type="xsd:string"/>
@@ -78,8 +77,6 @@
                     <xsd:documentation><![CDATA[序列化协议 ]]></xsd:documentation>
                 </xsd:annotation>
             </xsd:attribute>
-
-
             <xsd:attribute name="timeout" use="optional" type="xsd:string">
                 <xsd:annotation>
                     <xsd:documentation><![CDATA[超时时间 ]]></xsd:documentation>
