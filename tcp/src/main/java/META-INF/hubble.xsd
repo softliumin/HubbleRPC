@@ -1,0 +1,14 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.sharper.cc/sword"
+            xmlns="http://www.sharper.cc/sword"
+            elementFormDefault="qualified">
+
+    <xsd:element name="provider">
+        <xsd:complexType>
+            <xsd:attribute name="id" use="required" type="xsd:string"/>
+            <xsd:attribute name="interface" use="required" type="xsd:string"/>
+            <xsd:attribute name="ref" use="required" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
