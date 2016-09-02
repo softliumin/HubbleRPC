@@ -7,6 +7,12 @@
        http://www.sharper.cc/sword http://www.sharper.cc/sword/sword.xsd">
 
 
+
+    <hubble:registry id="jsf"  protocol="hubbleRegistry" index="i.jsf.jd.com" />
+
+
+    <hubble:server id="hubble1" protocol="hubble" />
+
     <hubble:provider id="firstRpc" interface="" ref=""  alias="test001"/>
 
 </beans>
