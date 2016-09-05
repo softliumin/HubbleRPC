@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:hubble="http://www.sharper.cc/sword"
+       xmlns:hubble="http://www.sharper.cc/hubble"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.sharper.cc/sword http://www.sharper.cc/sword/sword.xsd">
+       http://www.sharper.cc/hubble http://www.sharper.cc/hubble/hubble.xsd">
 
 
 
-    <hubble:registry id="jsf"  protocol="hubbleRegistry" index="i.jsf.jd.com" />
+    <hubble:registry id="jsf"  protocol="hubbleRegistry" address="127.0.0.1" />
 
 
-    <hubble:server id="hubble1" protocol="hubble" />
+    <!--&lt;!&ndash;  会从注册中心获取地址和端口 &ndash;&gt;-->
+    <!--<hubble:server id="hubble1" protocol="hubble"/>-->
 
-    <hubble:provider id="firstRpc" interface="" ref=""  alias="test001"/>
+    <!--<hubble:provider id="firstRpc" interface="" ref=""  alias="test001"/>-->
 
 </beans>

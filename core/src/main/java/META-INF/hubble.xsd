@@ -1,6 +1,6 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://www.sharper.cc/sword"
-            xmlns="http://www.sharper.cc/sword"
+            targetNamespace="http://www.sharper.cc/hubble"
+            xmlns="http://www.sharper.cc/hubble"
             elementFormDefault="qualified">
 
     <xsd:element name="server">
@@ -36,7 +36,7 @@
             <xsd:attribute name="protocol" use="optional" type="xsd:string"/>
             <xsd:attribute name="timeout" use="optional" type="xsd:string"/>
             <xsd:attribute name="retries" use="optional" type="xsd:string"/>
-            <xsd:attribute name="index" type="xsd:string" use="optional">
+            <xsd:attribute name="address" type="xsd:string" use="optional">
                 <xsd:annotation>
                     <xsd:documentation><![CDATA[ 注册中心Index服务地址 ]]></xsd:documentation>
                 </xsd:annotation>

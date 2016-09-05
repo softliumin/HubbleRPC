@@ -7,4 +7,5 @@ import org.springframework.beans.factory.xml.AbstractSimpleBeanDefinitionParser;
  */
 public class HubbleConsumer  extends AbstractSimpleBeanDefinitionParser
 {
+
 }

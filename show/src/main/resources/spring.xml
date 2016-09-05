@@ -12,4 +12,6 @@
 
     <util:properties id="props" location="classpath:config.properties"/>
     <import resource="spring/spring-service.xml"/>
+    <import resource="spring/spring-hubble-provider.xml"/>
+    <import resource="spring/spring-hubble-consumer.xml"/>
 </beans>
