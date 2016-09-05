@@ -12,15 +12,9 @@ public class HubbleRegistry  implements InitializingBean, DisposableBean
 
     private String protocol;
 
-    private int address;
+    private String address;
 
-    private int procotolType;//协议名称
 
-    private int codecType;//编码类型
-
-    private String group;//组
-
-    private int threadCount;//线程数
 
 
 
@@ -32,5 +26,35 @@ public class HubbleRegistry  implements InitializingBean, DisposableBean
     public void afterPropertiesSet() throws Exception
     {
 
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    public String getProtocol()
+    {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol)
+    {
+        this.protocol = protocol;
+    }
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
     }
 }

@@ -12,8 +12,8 @@ public class HubbleNamespaceHandler extends NamespaceHandlerSupport
 
 
         registerBeanDefinitionParser("registry", new HubbleRegistryParser());
-        registerBeanDefinitionParser("server", new HubbleServerParser());
-        registerBeanDefinitionParser("provider", new HubbleProviderParser());
-        registerBeanDefinitionParser("consumer", new HubbleConsumerParser());
+//        registerBeanDefinitionParser("server", new HubbleServerParser());
+//        registerBeanDefinitionParser("provider", new HubbleProviderParser());
+//        registerBeanDefinitionParser("consumer", new HubbleConsumerParser());
     }
 }

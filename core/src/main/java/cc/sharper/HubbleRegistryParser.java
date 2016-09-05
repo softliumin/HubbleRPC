@@ -15,24 +15,29 @@ public class HubbleRegistryParser  implements BeanDefinitionParser
 {
     public BeanDefinition parse(Element element, ParserContext parserContext)
     {
-        String interfacename = element.getAttribute("interfacename");
+
+        String protocol  = element.getAttribute("protocol");
+        String address = element.getAttribute("address");
         String id = element.getAttribute("id");
-        String group=element.getAttribute("group");
-        int procotolType=Integer.parseInt(element.getAttribute("procotolType"));
-        int codecType=Integer.parseInt(element.getAttribute("codecType"));
-        int timeout=Integer.parseInt(element.getAttribute("timeout"));
+
+//        String interfacename = element.getAttribute("interfacename");
+//        String id = element.getAttribute("id");
+//        String group=element.getAttribute("group");
+//        int procotolType=Integer.parseInt(element.getAttribute("procotolType"));
+//        int codecType=Integer.parseInt(element.getAttribute("codecType"));
+//        int timeout=Integer.parseInt(element.getAttribute("timeout"));
 
         RootBeanDefinition beanDefinition = new RootBeanDefinition();
-        beanDefinition.setBeanClass(HubbleRegistry.class);
-        beanDefinition.setLazyInit(false);
-
-        beanDefinition.getPropertyValues().addPropertyValue("interfacename", interfacename);
-        beanDefinition.getPropertyValues().addPropertyValue("group", group);
-        beanDefinition.getPropertyValues().addPropertyValue("protocolType", procotolType);
-        beanDefinition.getPropertyValues().addPropertyValue("codecType", codecType);
-        beanDefinition.getPropertyValues().addPropertyValue("timeout", timeout);
-
-        parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);
+//        beanDefinition.setBeanClass(HubbleRegistry.class);
+//        beanDefinition.setLazyInit(false);
+//
+//        beanDefinition.getPropertyValues().addPropertyValue("interfacename", interfacename);
+//        beanDefinition.getPropertyValues().addPropertyValue("group", group);
+//        beanDefinition.getPropertyValues().addPropertyValue("protocolType", procotolType);
+//        beanDefinition.getPropertyValues().addPropertyValue("codecType", codecType);
+//        beanDefinition.getPropertyValues().addPropertyValue("timeout", timeout);
+//
+//        parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);
         return beanDefinition;
     }
 }
