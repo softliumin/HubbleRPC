@@ -8,7 +8,7 @@
 
 
 
-    <hubble:registry id="hubble"  protocol="hubbleRegistry" address="127.0.0.1" />
+    <hubble:registry id="hubbleRegistry"  protocol="hubbleRegistry" address="127.0.0.1" />
 
 
     <!--&lt;!&ndash;  会从注册中心获取地址和端口 &ndash;&gt;-->
