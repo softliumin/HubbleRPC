@@ -3,11 +3,15 @@ package cc.sharper.bean;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import java.io.Serializable;
+
 /**
  * Created by liumin3 on 2016/9/2.
  */
-public class HubbleRegistry  implements InitializingBean, DisposableBean
+public class HubbleRegistry  implements InitializingBean, DisposableBean,Serializable
 {
+    private static final long serialVersionUID = -2508213661321690225L;
+
     private String id;
 
     private String protocol;
@@ -16,7 +20,8 @@ public class HubbleRegistry  implements InitializingBean, DisposableBean
 
 
 
-
+    public HubbleRegistry() {
+    }
 
     public void destroy() throws Exception
     {
