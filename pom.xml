@@ -15,6 +15,9 @@
         <module>tcp</module>
         <module>proxy</module>
         <module>service</module>
+        <module>test</module>
+        <module>test2</module>
+        <module>test3</module>
     </modules>
 
 

@@ -73,7 +73,7 @@
         <xsd:complexType>
             <xsd:attribute name="id" use="required" type="xsd:string"/>
             <xsd:attribute name="interface" use="required" type="xsd:string"/>
-            <xsd:attribute name="ref" use="required" type="xsd:string"/>
+            <xsd:attribute name="ref" use="optional" type="xsd:string"/>
             <xsd:attribute name="alias" use="required" type="xsd:string"/>
             <xsd:attribute name="protocol" use="optional" type="xsd:string">
                 <xsd:annotation>
