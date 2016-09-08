@@ -30,7 +30,7 @@ public class HubbleRegistry  implements InitializingBean, DisposableBean,Seriali
 
     public void afterPropertiesSet() throws Exception
     {
-
+        System.out.println(1111);
     }
 
     public String getId()

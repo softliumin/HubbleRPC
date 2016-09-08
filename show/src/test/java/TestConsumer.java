@@ -24,10 +24,10 @@ public class TestConsumer
     public  void test()
     {
 
+        HubbleRegistry registry = null;
 
         HubbleRegistry registry2 =(HubbleRegistry) applicationContext.getBean("hubbleRegistry");
 //
-        HubbleRegistry registry = null;
 
 
 //
