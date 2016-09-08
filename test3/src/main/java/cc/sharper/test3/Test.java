@@ -23,20 +23,15 @@ public class Test
         int s1 = 0;
         int s2 = 0;
         int s3 = 0;
-
         List<Xigua> list = new ArrayList<Xigua>();
         list.add(x1);
         list.add(x2);
         list.add(x3);
-
         Random random = new Random();
-
         for (int x =0;x<100000000;x++)
         {
             int rand = random.nextInt(1000);
-
             int sum= 0;
-
             for(int i=0;i<list.size();i++)
             {
                 sum += list.get(i).getWeight();//武将的出现机率
@@ -59,29 +54,23 @@ public class Test
                 }
             }
         }
-
         System.out.println("s1:"+s1);
         System.out.println("s2:"+s2);
         System.out.println("s3:"+s3);
-
-
     }
 }
 
 class Xigua
 {
     private int weight;
-
     public  Xigua(int weight)
     {
         this.weight = weight;
     }
-
     public int getWeight()
     {
         return weight;
     }
-
     public void setWeight(int weight)
     {
         this.weight = weight;

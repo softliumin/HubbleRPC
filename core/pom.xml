@@ -17,6 +17,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <developers>
+        <developer>
+            <name>Sharper</name>
+            <email>softliumin@gmail.com</email>
+            <organization>softliumin.github.io</organization>
+        </developer>
+    </developers>
+
+
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

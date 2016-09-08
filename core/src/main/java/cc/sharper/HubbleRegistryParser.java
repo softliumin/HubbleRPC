@@ -18,42 +18,19 @@ public class HubbleRegistryParser  implements BeanDefinitionParser
 {
     public BeanDefinition parse(Element element, ParserContext parserContext)
     {
-
         String protocol  = element.getAttribute("protocol");
         String address = element.getAttribute("address");
         String id = element.getAttribute("id");
-
-//        String interfacename = element.getAttribute("interfacename");
-//        String id = element.getAttribute("id");
-//        String group=element.getAttribute("group");
-//        int procotolType=Integer.parseInt(element.getAttribute("procotolType"));
-//        int codecType=Integer.parseInt(element.getAttribute("codecType"));
-//        int timeout=Integer.parseInt(element.getAttribute("timeout"));
-
-
-//        beanDefinition.setBeanClass(HubbleRegistry.class);
-//        beanDefinition.setLazyInit(false);
-//
-//        beanDefinition.getPropertyValues().addPropertyValue("interfacename", interfacename);
-//        beanDefinition.getPropertyValues().addPropertyValue("group", group);
-//        beanDefinition.getPropertyValues().addPropertyValue("protocolType", procotolType);
-//        beanDefinition.getPropertyValues().addPropertyValue("codecType", codecType);
-//        beanDefinition.getPropertyValues().addPropertyValue("timeout", timeout);
-//
-//        parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);
         RootBeanDefinition beanDefinition = new RootBeanDefinition();
         beanDefinition.setLazyInit(false);
         beanDefinition.setBeanClass(HubbleRegistry.class);
 
         //设置属性
 //        Method[] methods = HubbleRegistry.class.getMethods();
-
         beanDefinition.getPropertyValues().addPropertyValue("protocol",protocol);
         beanDefinition.getPropertyValues().addPropertyValue("address",address);
         beanDefinition.getPropertyValues().addPropertyValue("id",id);
-
         parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);
-
         return beanDefinition;
     }
 
