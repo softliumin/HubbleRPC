@@ -8,14 +8,14 @@
 
 
     <!-- hubble的注册分支 线上zk的地址 -->
-    <hubble:registry id="hubbleRegistry"  protocol="hubbleRegistry" address="101.200.145.47" />
+    <hubble:registry id="hubbleRegistry"  protocol="hubbleRegistry" address="" />
 
 
     <!--  会从注册中心获取地址和端口 -->
     <!--<hubble:server id="hubble" protocol="hubble"/>-->
 
     <!--  测试类-->
-    <!--<bean id="providerImpl" class="cc.sharper.test.ProviderImpl"> </bean>-->
-    <!--<hubble:provider id="firstRpc" interface="cc.sharper.test.IProvider" ref="providerImpl" alias="test001"/>-->
+    <bean id="providerImpl" class="cc.sharper.test.ProviderImpl"> </bean>
+    <hubble:provider id="firstRpc" interface="cc.sharper.test.IProvider" ref="providerImpl" alias="test001"/>
 
 </beans>

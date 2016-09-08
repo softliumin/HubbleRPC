@@ -26,7 +26,7 @@ public class HubbleProviderParser   implements BeanDefinitionParser
         beanDefinition.setBeanClass(HubbleProvider.class);
         beanDefinition.setLazyInit(false);
 
-        beanDefinition.getPropertyValues().addPropertyValue("interfacename", id);
+        beanDefinition.getPropertyValues().addPropertyValue("id", id);
         beanDefinition.getPropertyValues().addPropertyValue("ref", ref);
         beanDefinition.getPropertyValues().addPropertyValue("alias", alias);
         beanDefinition.getPropertyValues().addPropertyValue("inter", inter);

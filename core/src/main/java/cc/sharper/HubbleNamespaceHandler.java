@@ -12,7 +12,7 @@ public class HubbleNamespaceHandler extends NamespaceHandlerSupport
     public void init()
     {
         registerBeanDefinitionParser("registry", new HubbleRegistryParser());
-//        registerBeanDefinitionParser("provider", new HubbleProviderParser());
+        registerBeanDefinitionParser("provider", new HubbleProviderParser());
 
 
 //        registerBeanDefinitionParser("server", new HubbleServerParser());
