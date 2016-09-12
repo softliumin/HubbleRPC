@@ -8,7 +8,7 @@
 
 
     <!-- hubble的注册分支 线上zk的地址 -->
-    <hubble:registry id="hubbleRegistry"  protocol="hubbleRegistry" address="101.200.145.47" />
+    <hubble:registry id="hubbleRegistry"  protocol="hubbleRegistry" address="sharper.cc" />
 
 
     <!--  会从注册中心获取地址和端口 -->
