@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    #parse("layout/head.vm")
+
+<body  class="nav-md" >
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col" >
+            #parse("layout/leftPanel.vm")
+        </div>
+        <div class="top_nav">
+
+            <div class="nav_menu" >
+                <nav role="navigation" class="">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a aria-expanded="false" data-toggle="dropdown" class="user-profile dropdown-toggle" href="javascript:;">
+                                <img alt="" src="/resources/gentelella/images/imgJd.png">$!oper.name
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                <li>
+                                    <a href="/">帮助</a>
+                                </li>
+                                <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i>退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        $screen_content
+
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
