@@ -1,4 +1,4 @@
-package cc.sharper.controller;
+package cc.sharper.controller.web;
 
 import cc.sharper.NetUtils;
 import org.slf4j.Logger;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- *
+ *  hubble 的后台管理总类
  * Created by liumin3 on 2016/9/8.
  */
 @Controller
@@ -20,7 +20,9 @@ public class IndexController
     @RequestMapping("")
     public String index()
     {
-
-        return "";
+        return "/hubble/index";
     }
+
+
+
 }
