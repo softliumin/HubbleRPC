@@ -3,13 +3,14 @@ package cc.sharper;
 import cc.sharper.bean.HubbleProvider;
 import cc.sharper.bean.HubbleRegistry;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.beans.factory.xml.BeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;
 import org.w3c.dom.Element;
 
 /**
- * 解析提供者
+ * 解析提供者   半成品
  * Created by liumin3 on 2016/9/2.
  */
 public class HubbleProviderParser   implements BeanDefinitionParser
@@ -26,6 +27,7 @@ public class HubbleProviderParser   implements BeanDefinitionParser
         beanDefinition.setBeanClass(HubbleProvider.class);
         beanDefinition.setLazyInit(false);
 
+        beanDefinition.getPropertyValues().add("realRef",new RuntimeBeanReference(ref));//真正的处理类
         beanDefinition.getPropertyValues().addPropertyValue("id", id);
         beanDefinition.getPropertyValues().addPropertyValue("ref", ref);
         beanDefinition.getPropertyValues().addPropertyValue("alias", alias);
@@ -33,4 +35,8 @@ public class HubbleProviderParser   implements BeanDefinitionParser
         parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);//去容器注册bean
         return  beanDefinition;
     }
+
+
+
+
 }

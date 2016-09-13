@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * 带权重的的随机轮训
  * Created by liumin3 on 2016/9/8.
  */
 public class Test

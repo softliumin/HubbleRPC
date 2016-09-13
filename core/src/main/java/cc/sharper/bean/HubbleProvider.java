@@ -20,7 +20,7 @@ import java.rmi.registry.Registry;
  * Hubble的服务提供者
  * Created by liumin3 on 2016/9/2.
  */
-public class HubbleProvider  extends AbstractSimpleBeanDefinitionParser  implements
+public class HubbleProvider<T>  extends ProviderConfig  implements
         InitializingBean, DisposableBean, ApplicationContextAware, ApplicationListener,
         BeanNameAware
 {
@@ -30,6 +30,18 @@ public class HubbleProvider  extends AbstractSimpleBeanDefinitionParser  impleme
     private String ref;
     private String alias;
     private String inter;
+
+    protected transient T realRef;
+
+    public T getRealRef()
+    {
+        return realRef;
+    }
+
+    public void setRealRef(T realRef)
+    {
+        this.realRef = realRef;
+    }
 
     public void setBeanName(String name)
     {
@@ -68,7 +80,7 @@ public class HubbleProvider  extends AbstractSimpleBeanDefinitionParser  impleme
         //spring加载完毕
         if (applicationEvent instanceof ContextRefreshedEvent)
         {
-
+            create();
         }
     }
 

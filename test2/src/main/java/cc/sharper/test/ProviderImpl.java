@@ -10,6 +10,6 @@ public class ProviderImpl implements  IProvider
     {
         System.out.println(ss);
 
-        return "Test";
+        return "Test------>"+ss;
     }
 }

@@ -19,34 +19,10 @@
             <h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h7>
             <div class="menu_section">
                 <ul class="nav side-menu"  style="margin-top: 0px;">
-                    <li><a><i class="fa fa-edit"></i> 开户管理<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" style="display: none">
-                            <li><a href="/openAccount/list">开户查询</a></li>
-                        </ul>
-                    </li>
 
-                    <li><a><i class="fa fa-edit"></i> 开户管理<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-edit"></i> 监控<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
-                            <li><a href="/openAccount/list">开户查询</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a><i class="fa fa-edit"></i> 开户管理<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" style="display: none">
-                            <li><a href="/openAccount/list">开户查询</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li><a><i class="fa fa-edit"></i> 开户管理<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" style="display: none">
-                            <li><a href="/openAccount/list">开户查询</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a><i class="fa fa-edit"></i> 开户管理<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" style="display: none">
-                            <li><a href="/openAccount/list">开户查询</a></li>
+                            <li><a href="/hubble/">性能监控</a></li>
                         </ul>
                     </li>
 

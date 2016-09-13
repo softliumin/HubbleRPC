@@ -1,4 +1,6 @@
+import cc.sharper.bean.HubbleProvider;
 import cc.sharper.bean.HubbleRegistry;
+import cc.sharper.test.IProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,17 +26,20 @@ public class TestConsumer
     public  void test()
     {
 
-        HubbleRegistry registry = null;
+//        HubbleRegistry registry = null;
+//        HubbleRegistry registry2 =(HubbleRegistry) applicationContext.getBean("hubbleRegistry");
 
-        HubbleRegistry registry2 =(HubbleRegistry) applicationContext.getBean("hubbleRegistry");
-//
+        //第一步测试 路漫漫
+//        HubbleProvider provider =(HubbleProvider) applicationContext.getBean("firstRpc");
+//        IProvider test =(IProvider)  provider.getRealRef();
+//        System.out.println(test.testMethod("ss"));
+
+        //第二步测试
 
 
-//
-//        String address = registry.getAddress();
-//
-//
-//        System.out.println(address);
+
+
+
     }
 
 
