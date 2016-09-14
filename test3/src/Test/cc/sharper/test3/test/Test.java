@@ -24,9 +24,9 @@ public class Test
     @org.junit.Test
     public  void test()
     {
-        String ss = iProvider.testMethod("ss");
-
-        System.out.println(ss);
-        log.error("测试");
+//        String ss = iProvider.testMethod("ss");
+//
+//        System.out.println(ss);
+//        log.error("测试");
     }
 }

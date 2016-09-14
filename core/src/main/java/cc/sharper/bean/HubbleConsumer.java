@@ -10,7 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * Hubble的服务调用者
+ *
+ * Hubble的服务调用者  粗糙的解析
  * Created by liumin3 on 2016/9/2.
  */
 public class HubbleConsumer  implements InitializingBean, FactoryBean,
@@ -70,16 +71,26 @@ public class HubbleConsumer  implements InitializingBean, FactoryBean,
 
     }
 
+
+    //返回代理类
     @Override
     public Object getObject() throws Exception
     {
-        return null;
+        HubbleProxy proxy = new HubbleProxy("");
+
+        return  proxy.create(Class.forName(inter));
     }
 
     @Override
     public Class<?> getObjectType()
     {
-        return null;
+        try
+        {
+            return Class.forName(inter);
+        }catch (Exception e)
+        {
+            return null;
+        }
     }
 
     @Override
