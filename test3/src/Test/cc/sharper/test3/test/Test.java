@@ -8,7 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
+
 /**
+ *
+ *
+ * 客户端的调用测试类
+ *
  * Created by liumin3 on 2016/9/13.
  */
 
@@ -18,15 +24,15 @@ public class Test
 {
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    @Autowired
+    @Resource
     private IProvider iProvider;
 
     @org.junit.Test
     public  void test()
     {
-//        String ss = iProvider.testMethod("ss");
-//
-//        System.out.println(ss);
-//        log.error("测试");
+        String ss = iProvider.testMethod("ss");
+
+        System.out.println(ss);
+        log.error("测试");
     }
 }

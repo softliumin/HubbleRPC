@@ -12,9 +12,13 @@ public class HubbleNamespaceHandler extends NamespaceHandlerSupport
     public void init()
     {
         registerBeanDefinitionParser("registry", new HubbleRegistryParser());
+
         registerBeanDefinitionParser("provider", new HubbleProviderParser());
+
+        //调用端 第一步
         registerBeanDefinitionParser("consumer", new HubbleConsumerParser());
 
-//        registerBeanDefinitionParser("server", new HubbleServerParser());
+        //server是必须要的
+        registerBeanDefinitionParser("server", new HubbleServerParser());
     }
 }

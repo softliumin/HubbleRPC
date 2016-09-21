@@ -26,6 +26,7 @@ public class HubbleConsumerParser   implements BeanDefinitionParser
         beanDefinition.getPropertyValues().add("inter",inter);
         beanDefinition.getPropertyValues().add("alias",alias);
         parserContext.getRegistry().registerBeanDefinition(id, beanDefinition);//去容器注册bean
+
         return beanDefinition;
     }
 }

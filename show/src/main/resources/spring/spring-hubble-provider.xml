@@ -12,10 +12,13 @@
 
 
     <!--  会从注册中心获取地址和端口 -->
-    <!--<hubble:server id="hubble" protocol="hubble"/>-->
+    <hubble:server id="hubbleServer" protocol="hubble" port="22222"/>
 
     <!--  测试类-->
     <bean id="providerImpl" class="cc.sharper.test.ProviderImpl"> </bean>
+    <bean id="providerImpl2" class="cc.sharper.test.ProviderImpl2"> </bean>
+
     <hubble:provider id="firstRpc" interface="cc.sharper.test.IProvider" ref="providerImpl" alias="test001"/>
+    <hubble:provider id="firstRpc2" interface="cc.sharper.test.IProvider2" ref="providerImpl2" alias="test002"/>
 
 </beans>

@@ -21,6 +21,12 @@
                 </xsd:annotation>
             </xsd:attribute>
 
+            <xsd:attribute name="port" use="optional" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[ 服务端绑定端口 ]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+
         </xsd:complexType>
 
     </xsd:element>

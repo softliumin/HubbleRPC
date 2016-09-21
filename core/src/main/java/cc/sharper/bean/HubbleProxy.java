@@ -35,6 +35,9 @@ public class HubbleProxy
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
                     {
+
+                        //这里是发现服务和发送请求和返回信息
+
                         HubbleRequest request = new HubbleRequest(); // 创建并初始化 RPC 请求
                         request.setRequestId(UUID.randomUUID().toString());//
                         request.setClassName(method.getDeclaringClass().getName());// 类名
@@ -44,13 +47,14 @@ public class HubbleProxy
 
                         if (serviceDiscovery != null)
                         {
-                            //serverAddress = serviceDiscovery.discover(); // 发现服务
+                            serverAddress = serviceDiscovery.discover(interfaceClass.getName()); // 发现服务
                         }
 
-                        String[] array = serverAddress.split(":");
-                        String host = array[0];
-                        int port = Integer.parseInt(array[1]);
-
+//                        String[] array = serverAddress.split(":");
+//                        String host = array[0];
+//                        int port = Integer.parseInt(array[1]);
+                        String host = "127.0.0.1";
+                        int port =22222;
                         HubbleClient client = new HubbleClient(host, port); // 初始化 RPC 客户端 其实可以在本地留存一份信息
                         HubbleResponse response = client.send(request); // 通过 RPC 客户端发送 RPC 请求并获取 RPC 响应
 
@@ -61,6 +65,8 @@ public class HubbleProxy
                         {
                             return response.getResult();
                         }
+
+                        //return  "test ok ";
                     }
                 }
         );

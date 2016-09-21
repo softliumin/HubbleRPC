@@ -62,7 +62,7 @@ public class HubbleProvider<T>  extends ProviderConfig  implements
         HubbleRegistry re = this.applicationContext.getBean(HubbleRegistry.class);
         ZookeeperUtil zku = new ZookeeperUtil(re.getAddress());
 
-        zku.register(this.getInter(), NetUtils.getLocalHost());//存放的是接口地址
+        zku.register(this.getInter(), NetUtils.getLocalHost()+":");//存放的是接口地址和端口地址
     }
 
     /**

@@ -76,7 +76,7 @@ public class HubbleConsumer  implements InitializingBean, FactoryBean,
     @Override
     public Object getObject() throws Exception
     {
-        HubbleProxy proxy = new HubbleProxy("");
+        HubbleProxy proxy = new HubbleProxy("testAddress");
 
         return  proxy.create(Class.forName(inter));
     }
