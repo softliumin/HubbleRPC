@@ -53,8 +53,8 @@ public class HubbleProxy
 //                        String[] array = serverAddress.split(":");
 //                        String host = array[0];
 //                        int port = Integer.parseInt(array[1]);
-                        String host = "127.0.0.1";
-                        int port =22222;
+                        String host ="127.0.0.1";
+                        int port =8080;
                         HubbleClient client = new HubbleClient(host, port); // 初始化 RPC 客户端 其实可以在本地留存一份信息
                         HubbleResponse response = client.send(request); // 通过 RPC 客户端发送 RPC 请求并获取 RPC 响应
 

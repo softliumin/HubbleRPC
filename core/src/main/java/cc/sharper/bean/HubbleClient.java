@@ -75,6 +75,7 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
 
         }catch (Exception e)
         {
+            System.out.println(e.getMessage());
             log.info("发送请求异常",e);
         }
         finally

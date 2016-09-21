@@ -46,9 +46,9 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
 
     /**
      *
-     * 端口地址 默认是22222
+     * 端口地址 默认是8080
      */
-    private String port = "22222";
+    private String port = "8080";
 
     public void setApplicationContext(ApplicationContext ctx) throws BeansException
     {
@@ -88,7 +88,7 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             String host = "127.0.0.1";//ip地址   NetUtils.getLocalHost()
-            int port = Integer.parseInt("22222");//端口 22222
+            int port = Integer.parseInt("8080");//端口 8080
 
             ChannelFuture future = bootstrap.bind(host, port).sync();
 
