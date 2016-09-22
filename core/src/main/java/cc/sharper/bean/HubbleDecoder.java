@@ -7,6 +7,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 
 /**
+ * 解码
  * Created by liumin3 on 2016/9/14.
  */
 public class HubbleDecoder  extends ByteToMessageDecoder

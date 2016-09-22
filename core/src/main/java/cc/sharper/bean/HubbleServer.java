@@ -1,15 +1,10 @@
 package cc.sharper.bean;
 
-import cc.sharper.NetUtils;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -17,8 +12,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
 
 /**
  * hubble server配置
@@ -27,9 +22,6 @@ import java.util.Map;
 public class HubbleServer implements ApplicationContextAware,InitializingBean
 {
     private static final Logger log = LoggerFactory.getLogger(HubbleServer.class);
-
-    private Map<String, Object> handlerMap = new HashMap<String, Object>(); // 存放接口名与服务对象之间的映射关系
-
     private transient ApplicationContext applicationContext;
 
     /**
@@ -53,16 +45,6 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
     public void setApplicationContext(ApplicationContext ctx) throws BeansException
     {
         this.applicationContext = ctx;
-        // 获取所有带有 RpcService 注解的 Spring Bean
-//        Map<String, Object> serviceBeanMap = ctx.getBeansWithAnnotation(RpcService.class);
-//        if (MapUtils.isNotEmpty(serviceBeanMap))
-//        {
-//            for (Object serviceBean : serviceBeanMap.values())
-//            {
-//                String interfaceName = serviceBean.getClass().getAnnotation(RpcService.class).value().getName();
-//                handlerMap.put(interfaceName, serviceBean);
-//            }
-//        }
     }
 
     public void afterPropertiesSet() throws Exception
@@ -79,8 +61,8 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new HubbleDecoder(HubbleResponse.class))
-                                    .addLast(new HubbleEncoder(HubbleRequest.class))
+                                    .addLast(new HubbleDecoder(HubbleRequest.class))
+                                    .addLast(new HubbleEncoder(HubbleResponse.class))
                                     .addLast(new RpcServerHandler(applicationContext));
                         }
                     })
@@ -90,25 +72,49 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
             String host = "127.0.0.1";//ip地址   NetUtils.getLocalHost()
             int port = Integer.parseInt("8080");//端口 8080
 
-            ChannelFuture future = bootstrap.bind(host, port).sync();//.sync()
+            //绑定端口，同步等待成功
+            ChannelFuture future = bootstrap.bind(new InetSocketAddress(port)).sync();//.sync()
+
+            ChannelFuture channelFuture = future.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (future.isSuccess())
+                    {
+                        log.info("1111");
+                    } else
+                    {
+                        log.info("2222");
+                        workerGroup.shutdownGracefully();
+                        bossGroup.shutdownGracefully();
+                    }
+
+                }
+            });
+
+            try {
+                channelFuture.await(5000, TimeUnit.MILLISECONDS);
+                if(channelFuture.isSuccess()){
+                    log.info("ok了----------------");
+                }
+
+            } catch (InterruptedException e) {
+               log.info("有异常",e);
+            }
+
+
 
             log.info("server启动了 {}", port);
-
-            //暂时注释掉
-//            if (serviceRegistry != null)
-//            {
-//                serviceRegistry.register(serverAddress); // 注册服务地址
-//            }
-
-            //future.channel().closeFuture().sync();//.sync()
+            //等待服务端监听端口关闭
+           //future.channel().closeFuture().sync();//.sync()
         }catch (Exception e)
         {
             log.error("监听端口异常",e);
         }
         finally
         {
-            workerGroup.shutdownGracefully();
-            bossGroup.shutdownGracefully();
+            //线程符，释放资源
+//            workerGroup.shutdownGracefully();
+//            bossGroup.shutdownGracefully();
         }
     }
 

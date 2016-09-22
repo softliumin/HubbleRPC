@@ -12,7 +12,7 @@
 
 
     <!--  会从注册中心获取地址和端口 -->
-    <hubble:server id="hubbleServer" protocol="hubble" port="22222"/>
+    <hubble:server id="hubbleServer" protocol="hubble" port="8080"/>
 
     <!--  测试类-->
     <bean id="providerImpl" class="cc.sharper.test.ProviderImpl"> </bean>

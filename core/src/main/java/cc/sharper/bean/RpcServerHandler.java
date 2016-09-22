@@ -41,8 +41,8 @@ public class RpcServerHandler  extends SimpleChannelInboundHandler<HubbleRequest
     private Object handle(HubbleRequest request) throws Throwable
     {
         String className = request.getClassName();
-        Object serviceBean = applicationContext.getBean(className);
-
+        Object serviceBean = applicationContext.getBean(ContainProvider.allProvider.get(className));
+//        Object serviceBean = tem.getRealRef();
         Class<?> serviceClass = serviceBean.getClass();
         String methodName = request.getMethodName();
         Class<?>[] parameterTypes = request.getParameterTypes();
