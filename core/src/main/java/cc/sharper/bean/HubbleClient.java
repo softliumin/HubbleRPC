@@ -60,7 +60,7 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                     })
                     .option(ChannelOption.SO_KEEPALIVE, true);
 
-            ChannelFuture future = bootstrap.connect(host, port).sync();
+            ChannelFuture future = bootstrap.connect(host, port);//.sync()
             future.channel().writeAndFlush(request).sync();//发送请求信息去目标地方
 
             synchronized (obj)

@@ -90,7 +90,7 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
             String host = "127.0.0.1";//ip地址   NetUtils.getLocalHost()
             int port = Integer.parseInt("8080");//端口 8080
 
-            ChannelFuture future = bootstrap.bind(host, port).sync();
+            ChannelFuture future = bootstrap.bind(host, port).sync();//.sync()
 
             log.info("server启动了 {}", port);
 
@@ -100,7 +100,7 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
 //                serviceRegistry.register(serverAddress); // 注册服务地址
 //            }
 
-            //future.channel().closeFuture().sync();
+            //future.channel().closeFuture().sync();//.sync()
         }catch (Exception e)
         {
             log.error("监听端口异常",e);
