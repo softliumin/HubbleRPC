@@ -25,12 +25,13 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
     public HubbleClient(String host, int port) {
         this.host = host;
         this.port = port;
+
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HubbleResponse msg) throws Exception
     {
-        this.response = response;
+        this.response = msg;
 
         synchronized (obj) {
             obj.notifyAll(); // 收到响应，唤醒线程
@@ -60,7 +61,7 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                     })
                     .option(ChannelOption.SO_KEEPALIVE, true);
 
-            ChannelFuture future = bootstrap.connect(host, port);//.sync()
+            ChannelFuture future = bootstrap.connect(host, port).sync();//
             future.channel().writeAndFlush(request).sync();//发送请求信息去目标地方
 
             synchronized (obj)
