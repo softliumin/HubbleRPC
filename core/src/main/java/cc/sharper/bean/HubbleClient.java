@@ -1,5 +1,6 @@
 package cc.sharper.bean;
 
+import cc.sharper.util.io.HubbleMessage;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -51,9 +52,9 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new HubbleEncoder(HubbleRequest.class)) // 将 RPC 请求进行编码（为了发送请求）
-                                    .addLast(new HubbleDecoder(HubbleResponse.class)) // 将 RPC 响应进行解码（为了处理响应）
-                                    .addLast(HubbleClient.this); // 使用 HubbleClient 发送 RPC 请求
+                                    .addLast(new HubbleEncoder(HubbleMessage.class)) //HubbleRequest
+                                    .addLast(new HubbleDecoder(HubbleMessage.class)) //HubbleResponse
+                                    .addLast(HubbleClient.this); //
                         }
                     })
                     .option(ChannelOption.SO_KEEPALIVE, true);

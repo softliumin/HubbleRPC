@@ -1,5 +1,6 @@
 package cc.sharper.bean;
 
+import cc.sharper.util.io.HubbleMessage;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -61,8 +62,8 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new HubbleDecoder(HubbleRequest.class))
-                                    .addLast(new HubbleEncoder(HubbleResponse.class))
+                                    .addLast(new HubbleDecoder(HubbleMessage.class))//HubbleRequest
+                                    .addLast(new HubbleEncoder(HubbleMessage.class))//HubbleResponse
                                     .addLast(new RpcServerHandler(applicationContext));
                         }
                     })
@@ -80,10 +81,10 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                 public void operationComplete(ChannelFuture future) throws Exception {
                     if (future.isSuccess())
                     {
-                        log.info("1111");
+                        log.info("ok`````");
                     } else
                     {
-                        log.info("2222");
+                        log.info("end``````");
                         workerGroup.shutdownGracefully();
                         bossGroup.shutdownGracefully();
                     }
