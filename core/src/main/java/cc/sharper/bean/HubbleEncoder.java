@@ -11,16 +11,22 @@ public class HubbleEncoder  extends MessageToByteEncoder
 {
     private Class<?> genericClass;
 
-    public HubbleEncoder(Class<?> genericClass) {
+    public HubbleEncoder(Class<?> genericClass)
+    {
         this.genericClass = genericClass;
     }
 
     @Override
-    public void encode(ChannelHandlerContext ctx, Object in, ByteBuf out) throws Exception {
-        if (genericClass.isInstance(in)) {
+    public void encode(ChannelHandlerContext ctx, Object in, ByteBuf out) throws Exception
+    {
+        if (genericClass.isInstance(in))
+        {
             byte[] data = HubbleSerializationUtil.serialize(in);
             out.writeInt(data.length);
             out.writeBytes(data);
+        }else
+        {
+
         }
     }
 }

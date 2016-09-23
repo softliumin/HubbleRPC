@@ -9,17 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 客户端Channel
  * Created by liumin3 on 2016/9/14.
  */
 public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
 {
     private static final Logger log = LoggerFactory.getLogger(HubbleClient.class);
-
     private String host;
     private int port;
-
     private HubbleResponse response;
-
     private final Object obj = new Object();
 
     public HubbleClient(String host, int port) {
@@ -32,7 +30,6 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
     protected void channelRead0(ChannelHandlerContext ctx, HubbleResponse msg) throws Exception
     {
         this.response = msg;
-
         synchronized (obj) {
             obj.notifyAll(); // 收到响应，唤醒线程
         }

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 默认的序列化工具仅仅是针对protostuff 其他的以后改造
  * Created by liumin3 on 2016/9/14.
  */
 public class HubbleSerializationUtil

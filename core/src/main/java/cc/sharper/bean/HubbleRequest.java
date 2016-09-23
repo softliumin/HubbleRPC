@@ -1,5 +1,7 @@
 package cc.sharper.bean;
 
+import java.util.Map;
+
 /**
  * Created by liumin3 on 2016/9/14.
  */
@@ -13,7 +15,19 @@ public class HubbleRequest
 
     private Class<?>[] parameterTypes; // 参数类型
 
-    private Object[] parameters; // 那些参数
+    private Object[] parameters; // 参数
+
+    private Map<String ,String> args;// 附带信息
+
+    public Map<String, String> getArgs()
+    {
+        return args;
+    }
+
+    public void setArgs(Map<String, String> args)
+    {
+        this.args = args;
+    }
 
     public String getRequestId() {
         return requestId;
