@@ -6,6 +6,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -62,6 +63,7 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
+                                    .addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))
                                     .addLast(new HubbleDecoder(HubbleMessage.class))//HubbleRequest
                                     .addLast(new HubbleEncoder(HubbleMessage.class))//HubbleResponse
                                     .addLast(new RpcServerHandler(applicationContext));

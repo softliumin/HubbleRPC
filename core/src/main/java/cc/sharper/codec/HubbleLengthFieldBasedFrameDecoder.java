@@ -11,7 +11,7 @@ import java.util.List;
  *  Hubble实现的自己的FieldBasedFrameDecoder  解决半包读写
  * Created by liumin3 on 2016/9/24.
  *
- * @see  io.netty.handler.codec.FixedLengthFrameDecoder
+ * @see  io.netty.handler.codec.LengthFieldBasedFrameDecoder
  */
 public class HubbleLengthFieldBasedFrameDecoder extends ByteToMessageDecoder
 {
