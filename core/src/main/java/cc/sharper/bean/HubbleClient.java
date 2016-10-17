@@ -52,8 +52,8 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new HubbleEncoder(HubbleMessage.class)) //HubbleRequest
-                                    .addLast(new HubbleDecoder(HubbleMessage.class)) //HubbleResponse
+                                    .addLast(new HubbleEncoder(HubbleRequest.class)) //HubbleRequest
+                                    .addLast(new HubbleDecoder(HubbleResponse.class)) //HubbleResponse
                                     .addLast(HubbleClient.this); //
                         }
                     })

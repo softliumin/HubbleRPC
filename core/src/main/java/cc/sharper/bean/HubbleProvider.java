@@ -1,5 +1,6 @@
 package cc.sharper.bean;
 
+import cc.sharper.HubbleServerParser;
 import cc.sharper.NetUtils;
 import cc.sharper.ZookeeperUtil;
 import org.springframework.beans.BeansException;
@@ -60,9 +61,15 @@ public class HubbleProvider<T>  extends ProviderConfig  implements
     public void afterPropertiesSet() throws Exception
     {
         HubbleRegistry re = this.applicationContext.getBean(HubbleRegistry.class);
+
+
+        HubbleServer server = this.applicationContext.getBean(HubbleServer.class);
+
+
+
         ZookeeperUtil zku = new ZookeeperUtil(re.getAddress());
 
-        zku.register(this.getInter(), NetUtils.getLocalHost()+":");//存放的是接口地址和端口地址
+        zku.register(this.getInter(), NetUtils.getLocalHost()+":"+server.getPort());//存放的是接口地址和端口地址
 
         this.getRealRef().toString();
         ContainProvider.allProvider.put(this.getInter(),this.getRef());

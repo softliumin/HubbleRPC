@@ -63,9 +63,9 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))
-                                    .addLast(new HubbleDecoder(HubbleMessage.class))//HubbleRequest
-                                    .addLast(new HubbleEncoder(HubbleMessage.class))//HubbleResponse
+                                    //.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))
+                                    .addLast(new HubbleDecoder(HubbleRequest.class))//HubbleRequest
+                                    .addLast(new HubbleEncoder(HubbleResponse.class))//HubbleResponse
                                     .addLast(new RpcServerHandler(applicationContext));
                         }
                     })
@@ -73,7 +73,7 @@ public class HubbleServer implements ApplicationContextAware,InitializingBean
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             String host = "127.0.0.1";//ip地址   NetUtils.getLocalHost()
-            int port = Integer.parseInt("8080");//端口 8080
+            int port = Integer.parseInt("8080");
 
             //绑定端口，同步等待成功
             ChannelFuture future = bootstrap.bind(new InetSocketAddress(port)).sync();//.sync()

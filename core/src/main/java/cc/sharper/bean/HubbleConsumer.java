@@ -19,6 +19,7 @@ public class HubbleConsumer  implements InitializingBean, FactoryBean,
 {
     private static final long serialVersionUID = -2508213661321690225L;
 
+    private transient ApplicationContext applicationContext;
     private String id;
     private String alias;
     private String inter;
@@ -76,7 +77,9 @@ public class HubbleConsumer  implements InitializingBean, FactoryBean,
     @Override
     public Object getObject() throws Exception
     {
-        HubbleProxy proxy = new HubbleProxy("testAddress");
+        HubbleRegistry register = this.applicationContext.getBean(HubbleRegistry.class);
+        String address =  register.getAddress();
+        HubbleProxy proxy = new HubbleProxy(address);
 
         return  proxy.create(Class.forName(inter));
     }
@@ -108,7 +111,7 @@ public class HubbleConsumer  implements InitializingBean, FactoryBean,
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException
     {
-
+        this.applicationContext = applicationContext;
     }
 
 

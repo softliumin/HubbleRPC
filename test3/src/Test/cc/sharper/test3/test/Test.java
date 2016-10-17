@@ -33,6 +33,6 @@ public class Test
         String ss = iProvider.testMethod("ss");
 
         System.out.println(ss);
-        log.error("测试");
+       // log.error("测试");
     }
 }

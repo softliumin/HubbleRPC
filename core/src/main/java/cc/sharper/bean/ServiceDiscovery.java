@@ -45,7 +45,9 @@ public class ServiceDiscovery
 
                 data = dataList.get(0);
                 LOGGER.debug("using only data: {}", data);
-            } else {
+
+            } else
+            {
                 data = dataList.get(ThreadLocalRandom.current().nextInt(size));
                 LOGGER.debug("using random data: {}", data);
             }
@@ -79,7 +81,7 @@ public class ServiceDiscovery
         try
         {
             //注册一个事件 观察 ZK_REGISTRY_PATH 节点的子节点
-            List<String> nodeList = zk.getChildren("Constant.ZK_REGISTRY_PATH", new Watcher() {
+            List<String> nodeList = zk.getChildren(HubbleConstant.zookeeper_consumer, new Watcher() {
                 public void process(WatchedEvent event) {
                     if (event.getType() == Event.EventType.NodeChildrenChanged) {
                         watchNode(zk);
