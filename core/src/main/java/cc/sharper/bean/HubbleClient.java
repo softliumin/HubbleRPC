@@ -6,6 +6,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,8 +53,9 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new HubbleEncoder(HubbleRequest.class)) //HubbleRequest
-                                    .addLast(new HubbleDecoder(HubbleResponse.class)) //HubbleResponse
+                                    .addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))// 解码 1：半包读写问题 2： 私有化协议栈解析
+                                    .addLast(new HubbleEncoder(BaseMessage.class)) //HubbleRequest
+                                    .addLast(new HubbleDecoder(BaseMessage.class)) //HubbleResponse
                                     .addLast(HubbleClient.this); //
                         }
                     })

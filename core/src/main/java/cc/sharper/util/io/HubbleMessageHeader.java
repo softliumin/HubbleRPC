@@ -8,6 +8,21 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Hubble的消息头
  * 结构如下:
+ *
+ *  协议栈 魔术位
+ *  ------
+ *              length
+ *  head----->  allLength
+ *              msgType
+ *              codecType
+ *              msgId
+ *
+ *
+ *  -------
+ *  body
+ *  ------
+ *
+ *
  * Created by liumin3 on 2016/9/23.
  */
 public class HubbleMessageHeader implements Cloneable{

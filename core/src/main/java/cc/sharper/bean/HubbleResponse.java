@@ -4,7 +4,7 @@ package cc.sharper.bean;
  * hubble的返回对象
  * Created by liumin3 on 2016/9/14.
  */
-public class HubbleResponse //extends  BaseMessage
+public class HubbleResponse extends  BaseMessage
 {
     private String requestId;
 
