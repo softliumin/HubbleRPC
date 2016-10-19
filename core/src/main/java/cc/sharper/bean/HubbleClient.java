@@ -53,9 +53,9 @@ public class HubbleClient  extends SimpleChannelInboundHandler<HubbleResponse>
                         public void initChannel(SocketChannel channel) throws Exception
                         {
                             channel.pipeline()
-                                    .addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))// 解码 1：半包读写问题 2： 私有化协议栈解析
-                                    .addLast(new HubbleEncoder(BaseMessage.class)) //HubbleRequest
-                                    .addLast(new HubbleDecoder(BaseMessage.class)) //HubbleResponse
+                                    //.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,-4,4))// 解码 1：半包读写问题 2： 私有化协议栈解析
+                                    .addLast(new HubbleEncoder(HubbleRequest.class)) //HubbleRequest  编码  BaseMessage
+                                    .addLast(new HubbleDecoder(HubbleResponse.class)) //HubbleResponse  解码
                                     .addLast(HubbleClient.this); //
                         }
                     })

@@ -27,6 +27,10 @@ public class HubbleDecoder  extends ByteToMessageDecoder
             return;
         }
         in.markReaderIndex();
+        int tt = in.readInt();
+        System.out.println("ttttttttttttttttttttttttttt:"+tt);
+
+
         int dataLength = in.readInt();
         if (dataLength < 0)
         {

@@ -32,7 +32,7 @@ public class ServiceDiscovery
 
         ZooKeeper zk = connectServer();
         if (zk != null) {
-            watchNode(zk);
+           // watchNode(zk);
         }
     }
 

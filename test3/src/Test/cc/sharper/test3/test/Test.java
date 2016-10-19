@@ -30,9 +30,37 @@ public class Test
     @org.junit.Test
     public  void test()
     {
-        String ss = iProvider.testMethod("ss");
+        for (int x=0;x<1;x++)
+        {
+            String ss = iProvider.testMethod("ss");
+            System.out.println(ss);
+        }
 
-        System.out.println(ss);
+        System.out.println("over");
        // log.error("测试");
     }
+//    @org.junit.Test
+//    public  void test2()
+//    {
+//        for (int x=0;x<100000;x++)
+//        {
+//            String ss = iProvider.testMethod("ss");
+//            System.out.println(ss);
+//        }
+//
+//
+//        // log.error("测试");
+//    }
+//    @org.junit.Test
+//    public  void test3()
+//    {
+//        for (int x=0;x<100000;x++)
+//        {
+//            String ss = iProvider.testMethod("ss");
+//            System.out.println(ss);
+//        }
+//
+//
+//        // log.error("测试");
+//    }
 }
