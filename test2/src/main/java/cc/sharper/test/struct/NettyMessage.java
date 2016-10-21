@@ -1,4 +1,5 @@
-package cc.sharper.test;
+package cc.sharper.test.struct;
+
 
 /**
  * Created by liumin3 on 2016/10/19.
@@ -6,7 +7,7 @@ package cc.sharper.test;
 public final class NettyMessage
 {
     private Header header;
-    private Object object;
+    private Object body;
 
     public Header getHeader() {
         return header;
@@ -16,19 +17,19 @@ public final class NettyMessage
         this.header = header;
     }
 
-    public Object getObject() {
-        return object;
+    public Object getBody() {
+        return body;
     }
 
-    public void setObject(Object object) {
-        this.object = object;
+    public void setBody(Object body) {
+        this.body = body;
     }
 
     @Override
     public String toString() {
         return "NettyMessage{" +
                 "header=" + header +
-                ", object=" + object +
+                ", object=" + body +
                 '}';
     }
 }
