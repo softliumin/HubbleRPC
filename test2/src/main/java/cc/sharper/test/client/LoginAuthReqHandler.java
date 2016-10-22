@@ -13,45 +13,47 @@ import io.netty.channel.ChannelHandlerAdapter;
 /**
  * Created by liumin3 on 2016/10/20.
  */
-public class LoginAuthReqHandler extends ChannelHandlerAdapter {
+public class LoginAuthReqHandler extends ChannelHandlerAdapter
+{
 
-    /**
-     * Calls {@link ChannelHandlerContext#fireChannelActive()} to forward to the
-     * next {@link ChannelHandler} in the {@link ChannelPipeline}.
-     *
-     * Sub-classes may override this method to change behavior.
-     */
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+
+    //通道激活的时候
+    public void channelActive(ChannelHandlerContext ctx) throws Exception
+    {
+        System.out.println("客户端发送握手请求--------");
         ctx.writeAndFlush(buildLoginReq());
     }
 
-    /**
-     * Calls {@link ChannelHandlerContext#fireChannelRead(Object)} to forward to
-     * the next {@link ChannelHandler} in the {@link ChannelPipeline}.
-     *
-     * Sub-classes may override this method to change behavior.
-     */
+
+    // 接到消息的返回
     public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
+            throws Exception
+    {
         NettyMessage message = (NettyMessage) msg;
 
         // 如果是握手应答消息，需要判断是否认证成功
         if (message.getHeader() != null
                 && message.getHeader().getType() == MessageType.LOGIN_RESP
-                .value()) {
+                .value())
+        {
             byte loginResult = (byte) message.getBody();
-            if (loginResult != (byte) 0) {
-                // 握手失败，关闭连接
+            if (loginResult != (byte) 0)
+            {
+                // 握手失败，关闭链路
                 ctx.close();
-            } else {
+            } else
+            {
                 System.out.println("登录ok : " + message);
                 ctx.fireChannelRead(msg);
             }
         } else
+        {
             ctx.fireChannelRead(msg);
+        }
     }
 
-    private NettyMessage buildLoginReq() {
+    private NettyMessage buildLoginReq()
+    {
         NettyMessage message = new NettyMessage();
         Header header = new Header();
         header.setType(MessageType.LOGIN_REQ.value());
@@ -59,8 +61,10 @@ public class LoginAuthReqHandler extends ChannelHandlerAdapter {
         return message;
     }
 
+    //有异常了
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
-            throws Exception {
+            throws Exception
+    {
         ctx.fireExceptionCaught(cause);
     }
 }

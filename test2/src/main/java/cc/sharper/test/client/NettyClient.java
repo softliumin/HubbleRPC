@@ -31,7 +31,7 @@ public class NettyClient
     public void connect(int port, String host) throws Exception
     {
 
-        // 配置客户端NIO线程组
+        // 配置客户端NIO线程组   ChannelHandler  TODO
 
         try
         {
@@ -50,6 +50,7 @@ public class NettyClient
                                     new NettyMessageEncoder());
                             ch.pipeline().addLast("readTimeoutHandler",
                                     new ReadTimeoutHandler(50));
+
                             ch.pipeline().addLast("LoginAuthHandler",
                                     new LoginAuthReqHandler());
                             ch.pipeline().addLast("HeartBeatHandler",
@@ -75,6 +76,7 @@ public class NettyClient
                         TimeUnit.SECONDS.sleep(1);
                         try
                         {
+                            System.out.println("客户端再次发送连接请求");
                             connect(NettyConstant.PORT, NettyConstant.REMOTEIP);// 发起重连操作
                         } catch (Exception e)
                         {
